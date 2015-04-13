@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="AnimationApp">
+<head>
+<title>My Angular App</title>
+<link rel="stylesheet" type="text/css" href="../shared.css" />
+<link rel="stylesheet" type="text/css" href="./animations.css" />
+</head>
+<body>
+
+<section>
+  <header>
+    <h2>ngIf - Enter/Leave</h2>
+  </header>
+
+  <nav>
+    <button ng-click="ngif=true" ng-disabled="ngif">Enter</button>
+    <button ng-click="ngif=false" ng-disabled="!ngif">Leave</button>
+  </nav>
+
+  <div ng-repeat="animation in cssAnimations" class="repeat-cell">
+    <h3>{{ animation }}</h3>
+    <div class="container">
+      <div ng-class="animation" ng-if="ngif" class="stage animate">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+        vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+        no sea takimata sanctus est Lorem ipsum dolor sit amet.
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="../build/angular.js"></script>
+<script src="../build/angular-animate.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>

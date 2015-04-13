@@ -1,0 +1,34 @@
+html, body, select, input, option, pre, code {
+  font-size:12px;
+  font-family:Helvetica;
+}
+
+section {
+  margin:1em;
+}
+
+section > header {
+  background:#eee;
+  padding:10px;
+}
+
+button {
+  padding:5px;
+  background:#eee;
+  border-radius:2px;
+  border:1px solid #ddd;
+  font-size:1.5em; 
+}
+
+nav {
+  margin:1em 0;
+}
+
+select { min-width:300px; }
+
+.stage { padding:10px; border:2px solid #ddd; font-size:20px; }
+
+
+.container {
+  overflow:hidden;
+}
