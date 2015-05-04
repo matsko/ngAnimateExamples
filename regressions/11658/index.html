@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <style type="text/css">
+    a {
+      padding: 10px;
+      background-color: white;
+      transition: 0.5s ease-out all;
+    }
+    a.active { background-color: blue; }
+    a.active-add-active { background-color: red; }
+  </style>
+
+  <script src="./angular.js"></script>
+  <script src="./angular-route.js"></script>
+  <script src="./angular-animate.js"></script>
+  <script type="text/javascript">
+    angular.module('app', ['ngRoute', 'ngAnimate'])
+
+    .config(function($routeProvider) {
+      $routeProvider
+        .when('/restaurants', {})
+        .when('/about-us', {})
+        .otherwise('/restaurants');
+    })
+
+    .controller('NavigationController', function($location, $route) {
+      this.routeIs = function(routeName) {
+        return $location.path() === routeName;
+      };
+    })
+  </script>
+</head>
+<body ng-app="app">
+
+  <!-- Navigation Bar -->
+  <div ng-controller="NavigationController as nav">
+    <a ng-class="{active: nav.routeIs('/restaurants')}" href="#/">Home</a>
+    <a ng-class="{active: nav.routeIs('/about-us')}" href="#/about-us">Who we are</a>
+  </div>
+</body>
+</html>

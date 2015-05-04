@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Angular App</title>
+<style>
+  a {
+    display: block;
+    margin: 10px;
+}
+
+.float-left {
+    float: left;
+}
+
+#content {
+    width: 75%;
+}
+
+#link-1 {
+    background-color: green;
+}
+
+#link-2 {
+    background-color: orange;
+}
+
+.ng-hide-remove {
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  opacity: 0;
+}
+
+.ng-hide-remove-active {
+  opacity: 1;
+}
+
+.ng-hide-add {
+  transition: 0s none;
+}
+</style>
+</head>
+<body>
+
+<div ng-app="demo" ng-controller="MainCtrl">
+    <div class='float-left'>
+        <a href="#" ng-click="itemClicked(1)">Link 1</a>
+        <a href="#" ng-click="itemClicked(2)">Link 2</a>
+    </div>
+    <div class="float-left" id="content">
+        <div id='link-1' ng-show="link1Active">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae ornare neque, ac suscipit elit. Aliquam erat volutpat. Aenean ultricies sapien orci, eu eleifend nisl interdum ultrices. In nec egestas felis, et feugiat magna. In efficitur metus urna, sit amet porta libero vehicula et. Suspendisse eleifend placerat est sit amet facilisis. Curabitur fringilla non odio ut dictum. In ullamcorper neque vitae ligula sodales pellentesque. Sed feugiat lectus ut laoreet porttitor. Nunc sollicitudin non mi sollicitudin sodales.
+        </div>
+         <div id='link-2' ng-show="link2Active">
+           Nam finibus lectus nisl, sit amet lobortis orci facilisis vitae. Sed aliquet, leo sit amet faucibus feugiat, mauris neque sodales neque, nec ullamcorper libero mauris eget lectus. Donec magna libero, laoreet sit amet sapien non, mattis dignissim diam. Morbi rutrum dapibus tellus, at ultrices ex tristique at. Etiam suscipit faucibus auctor. Cras a scelerisque augue. Pellentesque ultricies feugiat metus, non maximus purus egestas vitae. Proin convallis enim elit, sit amet ornare risus ultricies at. Praesent semper risus accumsan, efficitur sapien ac, placerat dolor. Curabitur consectetur eros in tellus maximus varius. Vestibulum porta mollis posuere. Vestibulum vel massa vitae leo suscipit elementum quis nec justo. Quisque pretium convallis justo, id fringilla felis ullamcorper vel. Nunc in malesuada orci.
+        </div>
+    </div>
+  </div>
+
+<script src="//code.angularjs.org/1.4.0-rc.0/angular.js"></script>
+<script src="//code.angularjs.org/1.4.0-rc.0/angular-animate.js"></script>
+<script>
+   angular.module('demo', ['ngAnimate'])
+ .controller('MainCtrl', function($scope) 
+             {
+                 $scope.itemClicked = function(arg)
+                 {
+                     if (arg == 1) {
+                         $scope.link2Active = false;
+                         $scope.link1Active = true;
+                     }
+                     else {
+                         $scope.link2Active = true;
+                         $scope.link1Active = false;
+                     }
+                         
+                 }
+             });
+           </script>
+</body>
+</html>
