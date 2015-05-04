@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+</head>
+<body>
+
+<div ng-app="app" ng-controller="main">
+    Things...
+    <div ng-repeat="thing in things">
+        {{thing}}
+    </div>
+</div>
+
+<script src="./angular-fixed.js"></script>
+<script src="./angular-animate.js"></script>
+<script>
+angular.module('app', ['ngAnimate'])
+.controller('main', function($scope){
+    $scope.things = [];
+    for(var i = 0; i < 1000; i++){
+        $scope.things.push(i);
+    }
+});
+</script>
+</body>
+</html>
